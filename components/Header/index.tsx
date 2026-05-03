@@ -16,6 +16,10 @@ const navItems = [
   { label: "About", href: "/about" },
 ];
 
+const searchItems = [
+  { label: "Search with table", href: "/search/search-with-table" },
+  { label: "Search with cards", href: "/search/search-with-cards" },
+];
 const formItems = [
   { label: "Forms", href: "/forms" },
   { label: "Single-page form", href: "/forms/single-page" },
@@ -97,6 +101,25 @@ export function Header() {
               </DropdownMenuButton>
               <DropdownMenuPanel>
                 {formItems.map((item) => (
+                  <DropdownMenuItemLink href={item.href} key={item.href}>
+                    {item.label}
+                  </DropdownMenuItemLink>
+                ))}
+              </DropdownMenuPanel>
+            </DropdownMenu>
+          </div>
+          <div className="navDropdown">
+            <DropdownMenu popoverPlacement="bottom-start">
+              <DropdownMenuButton
+                className={`navLink navMenuButton${
+                  pathname.startsWith("/search") ? " navLinkActive" : ""
+                }`}
+                variant="text"
+              >
+                Search
+              </DropdownMenuButton>
+              <DropdownMenuPanel>
+                {searchItems.map((item) => (
                   <DropdownMenuItemLink href={item.href} key={item.href}>
                     {item.label}
                   </DropdownMenuItemLink>

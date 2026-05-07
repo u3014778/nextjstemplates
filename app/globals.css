@@ -253,6 +253,23 @@ main {
   margin: 0;
 }
 
+.searchTableWrapper table {
+  min-width: 58rem;
+}
+
+.searchTableWrapper th,
+.searchTableWrapper td {
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.searchTableWrapper th:first-child,
+.searchTableWrapper td:first-child {
+  max-width: 9rem;
+}
+
 .searchCardList {
   list-style: none;
   margin: 0;

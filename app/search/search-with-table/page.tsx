@@ -240,79 +240,81 @@ export default function SearchPage() {
                 </Text>
               </div>
 
-              <TableWrapper>
-                <Table
-                  aria-labelledby="search-results-heading"
-                  aria-rowcount={filteredResults.length}
-                  striped
-                  tableLayout="fixed"
-                >
-                  <TableCaption>Export application search results</TableCaption>
-                  <TableHead>
-                    <TableRow>
-                      <TableHeaderSortable
-                        onClick={() => handleSort("reference")}
-                        sort={getSortDirection("reference")}
-                        width="9rem"
-                      >
-                        Reference
-                      </TableHeaderSortable>
-                      <TableHeaderSortable
-                        onClick={() => handleSort("applicant")}
-                        sort={getSortDirection("applicant")}
-                      >
-                        Applicant
-                      </TableHeaderSortable>
-                      <TableHeaderSortable
-                        onClick={() => handleSort("commodity")}
-                        sort={getSortDirection("commodity")}
-                      >
-                        Commodity
-                      </TableHeaderSortable>
-                      <TableHeaderSortable
-                        onClick={() => handleSort("market")}
-                        sort={getSortDirection("market")}
-                      >
-                        Market
-                      </TableHeaderSortable>
-                      <TableHeaderSortable
-                        onClick={() => handleSort("status")}
-                        sort={getSortDirection("status")}
-                      >
-                        Status
-                      </TableHeaderSortable>
-                      <TableHeaderSortable
-                        onClick={() => handleSort("submitted")}
-                        sort={getSortDirection("submitted")}
-                      >
-                        Submitted
-                      </TableHeaderSortable>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {visibleResults.length > 0 ? (
-                      visibleResults.map((result) => (
-                        <TableRow key={result.reference}>
-                          <TableCell as="th" fontWeight="bold" scope="row">
-                            {result.reference}
-                          </TableCell>
-                          <TableCell>{result.applicant}</TableCell>
-                          <TableCell>{result.commodity}</TableCell>
-                          <TableCell>{result.market}</TableCell>
-                          <TableCell>{result.status}</TableCell>
-                          <TableCell>{result.submitted}</TableCell>
-                        </TableRow>
-                      ))
-                    ) : (
+              <div className="searchTableWrapper">
+                <TableWrapper>
+                  <Table
+                    aria-labelledby="search-results-heading"
+                    aria-rowcount={filteredResults.length}
+                    striped
+                    tableLayout="fixed"
+                  >
+                    <TableCaption>Export application search results</TableCaption>
+                    <TableHead>
                       <TableRow>
-                        <TableCell colSpan={6}>
-                          No results match the selected search criteria.
-                        </TableCell>
+                        <TableHeaderSortable
+                          onClick={() => handleSort("reference")}
+                          sort={getSortDirection("reference")}
+                          width="9rem"
+                        >
+                          Reference
+                        </TableHeaderSortable>
+                        <TableHeaderSortable
+                          onClick={() => handleSort("applicant")}
+                          sort={getSortDirection("applicant")}
+                        >
+                          Applicant
+                        </TableHeaderSortable>
+                        <TableHeaderSortable
+                          onClick={() => handleSort("commodity")}
+                          sort={getSortDirection("commodity")}
+                        >
+                          Commodity
+                        </TableHeaderSortable>
+                        <TableHeaderSortable
+                          onClick={() => handleSort("market")}
+                          sort={getSortDirection("market")}
+                        >
+                          Market
+                        </TableHeaderSortable>
+                        <TableHeaderSortable
+                          onClick={() => handleSort("status")}
+                          sort={getSortDirection("status")}
+                        >
+                          Status
+                        </TableHeaderSortable>
+                        <TableHeaderSortable
+                          onClick={() => handleSort("submitted")}
+                          sort={getSortDirection("submitted")}
+                        >
+                          Submitted
+                        </TableHeaderSortable>
                       </TableRow>
-                    )}
-                  </TableBody>
-                </Table>
-              </TableWrapper>
+                    </TableHead>
+                    <TableBody>
+                      {visibleResults.length > 0 ? (
+                        visibleResults.map((result) => (
+                          <TableRow key={result.reference}>
+                            <TableCell as="th" fontWeight="bold" scope="row">
+                              {result.reference}
+                            </TableCell>
+                            <TableCell>{result.applicant}</TableCell>
+                            <TableCell>{result.commodity}</TableCell>
+                            <TableCell>{result.market}</TableCell>
+                            <TableCell>{result.status}</TableCell>
+                            <TableCell>{result.submitted}</TableCell>
+                          </TableRow>
+                        ))
+                      ) : (
+                        <TableRow>
+                          <TableCell colSpan={6}>
+                            No results match the selected search criteria.
+                          </TableCell>
+                        </TableRow>
+                      )}
+                    </TableBody>
+                  </Table>
+                </TableWrapper>
+              </div>
 
               {filteredResults.length > 0 ? (
                 <PaginationButtons

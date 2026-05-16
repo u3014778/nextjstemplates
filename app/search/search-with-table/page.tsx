@@ -295,13 +295,35 @@ export default function SearchPage() {
                         visibleResults.map((result) => (
                           <TableRow key={result.reference}>
                             <TableCell as="th" fontWeight="bold" scope="row">
-                              {result.reference}
+                              <span className="searchTableCellText">
+                                {result.reference}
+                              </span>
                             </TableCell>
-                            <TableCell>{result.applicant}</TableCell>
-                            <TableCell>{result.commodity}</TableCell>
-                            <TableCell>{result.market}</TableCell>
-                            <TableCell>{result.status}</TableCell>
-                            <TableCell>{result.submitted}</TableCell>
+                            <TableCell>
+                              <span className="searchTableCellText">
+                                {result.applicant}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              <span className="searchTableCellText">
+                                {result.commodity}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              <span className="searchTableCellText">
+                                {result.market}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              <span className="searchTableCellText">
+                                {result.status}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              <span className="searchTableCellText">
+                                {result.submitted}
+                              </span>
+                            </TableCell>
                           </TableRow>
                         ))
                       ) : (

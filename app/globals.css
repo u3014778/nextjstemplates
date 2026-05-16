@@ -7,7 +7,6 @@
 
 html {
   height: 100%;
-  overflow-y: scroll;
 }
 
 html,
@@ -257,23 +256,25 @@ main {
   min-width: 58rem;
 }
 
-.searchTableWrapper th,
-.searchTableWrapper td {
-  max-width: 14rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.searchTableWrapper th {
   white-space: nowrap;
 }
 
-.searchTableWrapper th:first-child,
-.searchTableWrapper td:first-child {
-  max-width: 9rem;
+.searchTableCellText {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .searchCardList {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.signInModalActions {
+  margin-top: 1rem;
 }
 
 @media (min-width: 48rem) {

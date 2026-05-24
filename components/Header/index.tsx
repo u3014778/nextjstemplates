@@ -14,6 +14,7 @@ import { Text } from "@ag.ds-next/react/text";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Notifications", href: "/notifications" },
 ];
 
 const searchItems = [
@@ -41,7 +42,7 @@ function DammyLogo() {
       fontSize="md"
       fontWeight="bold"
     >
-      Your campany logo
+      Your company logo
     </Box>
   );
 }

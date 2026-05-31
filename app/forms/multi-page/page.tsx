@@ -19,12 +19,7 @@ import { Textarea } from "@ag.ds-next/react/textarea";
 import { TextInput } from "@ag.ds-next/react/text-input";
 import { Breadcrumbs } from "@ag.ds-next/react/breadcrumbs";
 import { Text } from "@ag.ds-next/react/text";
-
-const steps = [
-  { label: "Step 1 of 3: Applicant details" },
-  { label: "Step 2 of 3: Export details" },
-  { label: "Step 3 of 3: Review notes" },
-];
+import { multiPageFormSteps } from "@/TestData/formData";
 
 function StepContent({
   activeStepIndex,
@@ -114,9 +109,9 @@ function StepContent({
 export default function MultiPageForm() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const [uploadedFiles, setUploadedFiles] = useState<FileWithStatus[]>([]);
-  const activeStep = steps[activeStepIndex];
+  const activeStep = multiPageFormSteps[activeStepIndex];
   const isFirstStep = activeStepIndex === 0;
-  const isLastStep = activeStepIndex === steps.length - 1;
+  const isLastStep = activeStepIndex === multiPageFormSteps.length - 1;
 
   return (
     <Content>
@@ -142,7 +137,7 @@ export default function MultiPageForm() {
             <div className="multiPageFormProgress">
               <ProgressIndicator
                 activePath={activeStep.label}
-                items={steps.map((step, index) => ({
+                items={multiPageFormSteps.map((step, index) => ({
                   label: step.label,
                   onClick: () => setActiveStepIndex(index),
                   status:

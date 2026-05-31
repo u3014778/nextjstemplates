@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Avatar } from "@ag.ds-next/react/avatar";
 import { Box } from "@ag.ds-next/react/box";
+import { Button } from "@ag.ds-next/react/button";
 import {
   DropdownMenu,
   DropdownMenuButton,
@@ -10,6 +12,7 @@ import {
   DropdownMenuPanel,
 } from "@ag.ds-next/react/dropdown-menu";
 import { Text } from "@ag.ds-next/react/text";
+import { currentUser } from "@/TestData/dashboardData";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -49,6 +52,7 @@ function DammyLogo() {
 
 export function Header() {
   const pathname = usePathname();
+  const showDashboardAvatar = pathname === "/dashboard";
 
   return (
     <>
@@ -63,10 +67,10 @@ export function Header() {
           </Link>
           <div className="brandText">
             <Link className="headingLink" href="/">
-              Next.js Templates
+              Title - Next.js Templates
             </Link>
             <Text as="p" className="subline" fontSize="sm">
-              Template starter for Next.js
+              Subtitle - Template starter for Next.js
             </Text>
           </div>
         </div>
@@ -128,6 +132,64 @@ export function Header() {
               </DropdownMenuPanel>
             </DropdownMenu>
           </div>
+
+          {(() => {
+            const isActive = pathname === "/dashboard";
+
+            return (
+              <Link
+                aria-current={isActive ? "page" : undefined}
+                className={`navLink${isActive ? " navLinkActive" : ""}`}
+                href="/dashboard"
+              >
+                Dashboard
+              </Link>
+            );
+          })()}
+
+          {showDashboardAvatar ? (
+            <div className="navAvatar">
+              <DropdownMenu popoverPlacement="bottom-end">
+                <DropdownMenuButton
+                  aria-label={`User menu for ${currentUser.name}`}
+                  className="navAvatarButton"
+                  variant="text"
+                >
+                  <Avatar
+                    aria-hidden
+                    name={currentUser.name}
+                    size="lg"
+                    tone="action"
+                  />
+                </DropdownMenuButton>
+                <DropdownMenuPanel>
+                  <div className="navUserPanel">
+                    <Text as="p" fontWeight="bold">
+                      {currentUser.name}
+                    </Text>
+                    <Text as="p" fontSize="sm">
+                      {currentUser.jobtitle}
+                    </Text>
+                    <Text as="p" fontSize="sm">
+                      {currentUser.agency}
+                    </Text>
+                    <div className="navUserRoles" aria-label="User roles">
+                      {currentUser.roles.map((role) => (
+                        <span className="dashboardRole" key={role}>
+                          {role}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="navUserActions">
+                      <Button type="button" variant="secondary">
+                        Sign out
+                      </Button>
+                    </div>
+                  </div>
+                </DropdownMenuPanel>
+              </DropdownMenu>
+            </div>
+          ) : null}
         </div>
       </nav>
     </>

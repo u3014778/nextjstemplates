@@ -25,7 +25,7 @@ import {
   markets,
   resultStatuses,
   searchResults,
-} from "@/lib/data";
+} from "@/TestData/searchData";
 
 type Criteria = {
   commodity: string;

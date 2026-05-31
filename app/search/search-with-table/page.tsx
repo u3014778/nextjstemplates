@@ -31,7 +31,7 @@ import {
   resultStatuses,
   searchResults,
   type SearchResult,
-} from "@/lib/data";
+} from "@/TestData/searchData";
 
 type Criteria = {
   commodity: string;

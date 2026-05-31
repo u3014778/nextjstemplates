@@ -7,21 +7,7 @@ import { H1, H2 } from "@ag.ds-next/react/heading";
 import { Prose } from "@ag.ds-next/react/prose";
 import { Stack } from "@ag.ds-next/react/stack";
 import { Text } from "@ag.ds-next/react/text";
-
-const formTemplates = [
-  {
-    title: "Single-page form",
-    href: "/forms/single-page",
-    description:
-      "A compact form for simple transactions that can be completed in one step.",
-  },
-  {
-    title: "Multi-page form",
-    href: "/forms/multi-page",
-    description:
-      "A stepped form pattern for longer transactions with grouped questions.",
-  },
-];
+import { formTemplates } from "@/TestData/formData";
 
 export default function FormsPage() {
   return (

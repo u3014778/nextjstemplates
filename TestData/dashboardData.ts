@@ -8,21 +8,25 @@ export const currentUser = {
 export const summaryCards = [
   {
     label: "Open tasks",
+    href: "#dashboard-tasks",
     value: "8",
     description: "Assigned actions awaiting review",
   },
   {
     label: "Due today",
+    href: "#dashboard-tasks",
     value: "3",
     description: "Tasks that need attention today",
   },
   {
     label: "Active jobs",
+    href: "#dashboard-jobs",
     value: "12",
     description: "Applications in your work queue",
   },
   {
     label: "Unread messages",
+    href: "#",
     value: "5",
     description: "New comments and service updates",
   },

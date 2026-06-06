@@ -1,6 +1,6 @@
 import { Box } from "@ag.ds-next/react/box";
 import { ButtonLink } from "@ag.ds-next/react/button";
-import { Card, CardInner } from "@ag.ds-next/react/card";
+import { Card, CardInner, CardLink } from "@ag.ds-next/react/card";
 import { Columns } from "@ag.ds-next/react/columns";
 import { Content } from "@ag.ds-next/react/content";
 import { H1, H2 } from "@ag.ds-next/react/heading";
@@ -39,7 +39,7 @@ export default function DashboardPage() {
             </Prose>
             <div className="dashboardHeroActions">
               <ButtonLink >Start task</ButtonLink>
-              <ButtonLink href="/search/search-with-table" variant="secondary">
+              <ButtonLink href="#" variant="secondary">
                 Search records
               </ButtonLink>
             </div>
@@ -52,11 +52,11 @@ export default function DashboardPage() {
             gap={1}
           >
             {summaryCards.map((summary) => (
-              <Card as="li" key={summary.label}>
+              <Card as="li" clickable key={summary.label}>
                 <CardInner>
                   <Stack gap={0.5}>
                     <Text as="p" fontSize="sm" fontWeight="bold">
-                      {summary.label}
+                      <CardLink href={summary.href}>{summary.label}</CardLink>
                     </Text>
                     <Text as="p" className="dashboardMetric">
                       {summary.value}
@@ -73,7 +73,7 @@ export default function DashboardPage() {
           <Stack gap={2}>
             <Stack gap={1.5}>
               <div className="dashboardSectionHeader">
-                <H2>My tasks</H2>
+                <H2 id="dashboard-tasks">My tasks</H2>
                 <TextLink href="#">View all tasks</TextLink>
               </div>
               <div className="dashboardTableWrapper">
@@ -117,7 +117,7 @@ export default function DashboardPage() {
 
             <Stack gap={1.5}>
               <div className="dashboardSectionHeader">
-                <H2>My jobs</H2>
+                <H2 id="dashboard-jobs">My jobs</H2>
                 <TextLink href="#">View all jobs</TextLink>
               </div>
               <div className="dashboardTableWrapper">
